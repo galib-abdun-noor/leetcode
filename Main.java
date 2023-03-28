@@ -1,5 +1,7 @@
 import java.sql.Array;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 //    private final static Scanner scan = new Scanner(System.in);
@@ -10,133 +12,159 @@ public class Main {
 //        List<String> events = new ArrayList<>();
 
         Solution stn = new Solution();
-        int trib = stn.tribonacci(4);
-        System.out.println(trib);
-
-        boolean flag = stn.isPalindrome(121);
-        System.out.println(flag);
-        int[] nums = {1,1,2};
-        System.out.println(stn.removeDuplicates(nums));
-        int[] nums2 = {0,1,2,2,3,0,4,2};
-        System.out.println(stn.removeElement(nums2,2));
-        System.out.println("(35) Search Insert Position:");
-        System.out.println("Output: "+stn.searchInsert(nums2,3));
-        String sent = "   fly me   to   the moon  ";
-        System.out.println("(58) Length of Last Word");
-        System.out.println("Output: "+stn.lengthOfLastWord(sent));
-        System.out.println("(66) Plus One");
-        System.out.println("output: "+stn.plusOne(nums));
-        System.out.println("(67) Add Binary");
-        System.out.println("output: "+stn.addBinary("1010", "1011"));
-        System.out.println("(69) Sqrt(x)");
-        System.out.println("output: "+stn.mySqrt(2147483647));
-        System.out.println("(70) Climbing Stairs");
-        System.out.println("output: "+stn.climbStairs(2));
-        int[] nums1 = {1,2,3,0,0,0};
-        int[] nums3 = {2,5,6};
-        System.out.println("(88) Merge Sorted Array");
-        System.out.print("output: ");
-        stn.merge(nums1, 3, nums3, 3);
-        TreeNode node3 = new TreeNode(3);
-        TreeNode node2 = new TreeNode(2,node3,null);
-        TreeNode root = new TreeNode(1,null,node2);
-        System.out.println("(94) Binary Tree Inorder Traversal");
-        List<Integer> tree = stn.inorderTraversal(root);
-        for(Integer m:tree){
-            System.out.print(m+" ");
-        }
-        TreeNode node4 = new TreeNode(3);
-        TreeNode node5 = new TreeNode(2,node4,null);
-        TreeNode base = new TreeNode(1,null,node5);
-        System.out.println("(100) Same Tree");
-        System.out.println("output: "+stn.isSameTree(root,base));
-        System.out.println("(104) Maximum Depth of Binary Tree");
-        System.out.println("output: "+stn.maxDepth(root));
-        System.out.println("(118) Pascal's Triangle");
-        System.out.println("output: "+stn.generate(5));
-        System.out.println("(119) Pascal's Triangle II");
-        System.out.println("output: "+stn.getRow(5));
-        int[] prices = {7,1,5,3,6,4};
-        System.out.println("(121) Best Time to Buy and Sell Stock");
-        System.out.println("output: "+stn.maxProfit(prices));
-        System.out.println("(125) Valid Palindrome");
-        System.out.println("output: "+stn.isPalindrome("A man, a plan, a canal: Panama"));
-        ListNode n1 = new ListNode(3);
-        ListNode n2 = new ListNode(2);
-        ListNode n3 = new ListNode(0);
-        ListNode n4 = new ListNode(-4);
-        n1.next = n2;
-        n2.next = n3;
-        n3.next = n4;
-        n4.next = n2;
-        System.out.println("(141) Linked List Cycle");
-        System.out.println("output: "+stn.hasCycle(n1));
-        System.out.println("(144) Binary Tree Preorder Traversal");
-        System.out.println("output: "+stn.preorderTraversal(root));
-        System.out.println("(145) Binary Tree Postorder Traversal");
-        System.out.println("output: "+stn.postorderTraversal(root));
-        System.out.println("(168) Excel Sheet Column Title");
-        System.out.println("output: "+stn.convertToTitle(701));
-        int[] nums4 = {2,2,1,1,1,2,2};
-        System.out.println("(169) Majority Element");
-        System.out.println("output: "+stn.majorityElement(nums4));
-        System.out.println("(171) Excel Sheet Column Number");
-        System.out.println("output: "+stn.titleToNumber("AB"));
-        System.out.println("(191) Number of 1 Bits");
-        System.out.println("output: "+stn.hammingWeight(00000000000000000000000000001011));
-        n1 = new ListNode(1);
-        n2 = new ListNode(2);
-        n3 = new ListNode(3);
-        n4 = new ListNode(4);
-        ListNode n5 = new ListNode(5);
-        n1.next = n2;
-        n2.next = n3;
-        n3.next = n4;
-        n4.next = n5;
-        System.out.println("(206) Reverse Linked List");
-        System.out.println("output: "+stn.reverseList(n1));
-        System.out.println("(217) Contains Duplicate");
-        System.out.println("output: "+stn.containsDuplicate(nums4));
-        System.out.println("(234) Palindrome Linked List");
-        System.out.println("output: "+stn.isPalindrome(n1));
-        System.out.println("(242) Valid Anagram");
-        System.out.println("output: "+stn.isAnagram("anagram","nagaram"));
-        int[] nums6 = {0,1,0,3,12};
-        stn.moveZeroes(nums6);
-        System.out.println("(283) Move Zeroes");
-        System.out.println("output: ");
-        for(int i:nums6){
-            System.out.print(i+" ");
-        }
-        System.out.println();
-        System.out.println("(326) Power of Three");
-        System.out.println("output: "+stn.isPowerOfThree(1162261467));
-        char[] s = {'h','e','l','l','o'};
-        stn.reverseString(s);
-        System.out.println("(344) Reverse String");
-        System.out.println("output: ");
-        for(char i:s){
-            System.out.print(i+" ");
-        }
-        System.out.println();
-        String[] word = {"flower","flow","flight"};
-        System.out.println("(14) Longest Common Prefix");
-        System.out.println("output: "+stn.longestCommonPrefix(word));
+//        int trib = stn.tribonacci(4);
+//        System.out.println(trib);
 //
-//        while (totalEvents-- != 0) {
-//            String event = scan.nextLine();
-//            events.add(event);
+//        boolean flag = stn.isPalindrome(121);
+//        System.out.println(flag);
+//        int[] nums = {1,1,2};
+//        System.out.println(stn.removeDuplicates(nums));
+//        int[] nums2 = {0,1,2,2,3,0,4,2};
+//        System.out.println(stn.removeElement(nums2,2));
+//        System.out.println("(35) Search Insert Position:");
+//        System.out.println("Output: "+stn.searchInsert(nums2,3));
+//        String sent = "   fly me   to   the moon  ";
+//        System.out.println("(58) Length of Last Word");
+//        System.out.println("Output: "+stn.lengthOfLastWord(sent));
+//        System.out.println("(66) Plus One");
+//        System.out.println("output: "+stn.plusOne(nums));
+//        System.out.println("(67) Add Binary");
+//        System.out.println("output: "+stn.addBinary("1010", "1011"));
+//        System.out.println("(69) Sqrt(x)");
+//        System.out.println("output: "+stn.mySqrt(2147483647));
+//        System.out.println("(70) Climbing Stairs");
+//        System.out.println("output: "+stn.climbStairs(3));
+//        int[] nums1 = {1,2,3,0,0,0};
+//        int[] nums3 = {2,5,6};
+//        System.out.println("(88) Merge Sorted Array");
+//        System.out.print("output: ");
+//        stn.merge(nums1, 3, nums3, 3);
+//        TreeNode node3 = new TreeNode(3);
+//        TreeNode node2 = new TreeNode(2,node3,null);
+//        TreeNode root = new TreeNode(1,null,node2);
+//        System.out.println("(94) Binary Tree Inorder Traversal");
+//        List<Integer> tree = stn.inorderTraversal(root);
+//        for(Integer m:tree){
+//            System.out.print(m+" ");
 //        }
-//
-//        List<Student> students = priorities.getStudents(events);
-//
-//        if (students.isEmpty()) {
-//            System.out.println("EMPTY");
-//        } else {
-//            for (Student st: students) {
-//                System.out.println(st.getName());
-//            }
+//        TreeNode node4 = new TreeNode(3);
+//        TreeNode node5 = new TreeNode(2,node4,null);
+//        TreeNode base = new TreeNode(1,null,node5);
+//        System.out.println("(100) Same Tree");
+//        System.out.println("output: "+stn.isSameTree(root,base));
+//        System.out.println("(104) Maximum Depth of Binary Tree");
+//        System.out.println("output: "+stn.maxDepth(root));
+//        System.out.println("(118) Pascal's Triangle");
+//        System.out.println("output: "+stn.generate(5));
+//        System.out.println("(119) Pascal's Triangle II");
+//        System.out.println("output: "+stn.getRow(5));
+//        int[] prices = {7,1,5,3,6,4};
+//        System.out.println("(121) Best Time to Buy and Sell Stock");
+//        System.out.println("output: "+stn.maxProfit(prices));
+//        System.out.println("(125) Valid Palindrome");
+//        System.out.println("output: "+stn.isPalindrome("A man, a plan, a canal: Panama"));
+//        ListNode n1 = new ListNode(3);
+//        ListNode n2 = new ListNode(2);
+//        ListNode n3 = new ListNode(0);
+//        ListNode n4 = new ListNode(-4);
+//        n1.next = n2;
+//        n2.next = n3;
+//        n3.next = n4;
+//        n4.next = n2;
+//        System.out.println("(141) Linked List Cycle");
+//        System.out.println("output: "+stn.hasCycle(n1));
+//        System.out.println("(144) Binary Tree Preorder Traversal");
+//        System.out.println("output: "+stn.preorderTraversal(root));
+//        System.out.println("(145) Binary Tree Postorder Traversal");
+//        System.out.println("output: "+stn.postorderTraversal(root));
+//        System.out.println("(168) Excel Sheet Column Title");
+//        System.out.println("output: "+stn.convertToTitle(701));
+//        int[] nums4 = {2,2,1,1,1,2,2};
+//        System.out.println("(169) Majority Element");
+//        System.out.println("output: "+stn.majorityElement(nums4));
+//        System.out.println("(171) Excel Sheet Column Number");
+//        System.out.println("output: "+stn.titleToNumber("AB"));
+//        System.out.println("(191) Number of 1 Bits");
+//        System.out.println("output: "+stn.hammingWeight(00000000000000000000000000001011));
+//        ListNode n5 = new ListNode(1);
+//        ListNode n6 = new ListNode(2);
+//        ListNode n7 = new ListNode(3);
+//        ListNode n8 = new ListNode(4);
+//        ListNode n9 = new ListNode(5);
+//        n5.next = n6;
+//        n6.next = n7;
+//        n7.next = n8;
+//        n8.next = n9;
+//        System.out.println("(206) Reverse Linked List");
+//        System.out.println("output: "+stn.reverseList(n5));
+//        stn.reverseList(n5);
+//        System.out.println("(217) Contains Duplicate");
+//        System.out.println("output: "+stn.containsDuplicate(nums4));
+//        System.out.println("(234) Palindrome Linked List");
+//        System.out.println("output: "+stn.isPalindrome(n5));
+//        System.out.println("(242) Valid Anagram");
+//        System.out.println("output: "+stn.isAnagram("anagram","nagaram"));
+//        int[] nums6 = {0,1,0,3,12};
+//        stn.moveZeroes(nums6);
+//        System.out.println("(283) Move Zeroes");
+//        System.out.println("output: ");
+//        for(int i:nums6){
+//            System.out.print(i+" ");
 //        }
+//        System.out.println();
+//        System.out.println("(326) Power of Three");
+//        System.out.println("output: "+stn.isPowerOfThree(1162261467));
+//        char[] s = {'h','e','l','l','o'};
+//        stn.reverseString(s);
+//        System.out.println("(344) Reverse String");
+//        System.out.println("output: ");
+//        for(char i:s){
+//            System.out.print(i+" ");
+//        }
+//        System.out.println();
+//        String[] word = {"flower","flow","flight"};
+//        System.out.println("(14) Longest Common Prefix");
+//        System.out.println("output: "+stn.longestCommonPrefix(word));
+//        System.out.println("(28) Find the Index of the First Occurrence in a String");
+//        System.out.println("output: "+stn.strStr("leetcode","code"));
+//        System.out.println("(21) Merge Two Sorted Lists");
+//        ListNode n10 = new ListNode(3);
+//        ListNode n11 = new ListNode(4);
+//        ListNode n12 = new ListNode(5);
+//        ListNode n13 = new ListNode(6);
+//        n10.next = n11;
+//        n11.next = n12;
+//        n12.next = n13;
+//        ListNode m5 = new ListNode(1);
+//        ListNode m6 = new ListNode(2);
+//        ListNode m7 = new ListNode(3);
+//        ListNode m8 = new ListNode(4);
+//        ListNode m9 = new ListNode(5);
+//        m5.next = m6;
+//        m6.next = m7;
+//        m7.next = m8;
+//        m8.next = m9;
+//        ListNode head = stn.mergeTwoLists(n10,m5);
+//        System.out.println("output: ");
+//        while(head!=null){
+//            System.out.print(head.val+" ");
+//            head = head.next;
+//        }
+//        System.out.println();
+        System.out.println("(387) First Unique Character in a String");
+        System.out.println("output: "+stn.firstUniqChar("aabb"));
+        System.out.println("(412) Fizz Buzz");
+        System.out.println("output: "+stn.fizzBuzz(15));
+        int arr[] = {2,3,4,6,7,8,9};
+        System.out.println("Find missing number");
+        System.out.println("output: "+stn.findMissingNum(arr));
+        String date = "06-11-2020";
+        System.out.println("Match date format dd-mm-yyyy?");
+        System.out.println("output: "+stn.matchDateFormat(date));
+        System.out.println("Most frequent character in a string");
+        System.out.println("output: "+stn.mostFreqChar("leetcode"));
+        System.out.println("(3) Longest Substring Without Repeating Characters");
+        System.out.println("output: "+stn.lengthOfLongestSubstring("ckilbkd"));
     }
 }
 
@@ -266,16 +294,17 @@ class Solution{
     }
 
     public int climbStairs(int n) {
-        int ways = 0;
-        for(int i=0;i<=n;i++){
-            if(i+1<=n){
-                ways++;
-            }
-            if(i+2<=n){
-                ways++;
-            }
+        if(n<=2)
+            return n;
+        int first = 1;
+        int sec = 2;
+        int res = 0;
+        for(int i=2;i<n;i++){
+            res = first+sec;
+            first = sec;
+            sec= res;
         }
-        return ways;
+        return res;
     }
 
     public ListNode deleteDuplicates(ListNode head) {
@@ -294,21 +323,22 @@ class Solution{
     }
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode temp1 = list1;
-        ListNode temp2 = list2;
+        ListNode head = new ListNode(0);
+        ListNode temp = head;
 
-        while((temp1 != null && temp1.next!=null) && (temp2 != null && temp2.next!=null)){
-            if(temp2.val>temp1.val){
-                temp1 = temp2.next;
+        while(list1!=null && list2!=null){
+            if(list1.val<= list2.val){
+                temp.next = list1;
+                list1 = list1.next;
             }
             else{
-                ListNode head = temp1;
-                temp1.val = temp2.val;
-                temp1.next = head;
-                temp2=temp2.next;
+                temp.next = list2;
+                list2 = list2.next;
             }
+            temp = temp.next;
         }
-        return temp1;
+        temp.next = list1==null?list2:list1;
+        return head.next;
     }
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
@@ -735,6 +765,152 @@ class Solution{
             sb = sb+ch;
         }
         return sb;
+    }
+
+//    public int strStr(String haystack, String needle) {
+//        Pattern pat = Pattern.compile(needle);
+//        Matcher mat = pat.matcher(haystack);
+//        if(mat.find()){
+//            return mat.start();
+//        }
+//        else{
+//            return -1;
+//        }
+//    }
+
+    public int strStr(String haystack, String needle) {
+        return haystack.contains(needle)?haystack.indexOf(needle):-1;
+    }
+
+//    public int firstUniqChar(String s) {
+//        // Stores lowest index / first index
+//        int ans = Integer.MAX_VALUE;
+//        // Iterate from a to z which is 26 which makes it constant
+//        for(char c='a'; c<='z';c++){
+//            // indexOf will return first index of alphabet and lastIndexOf will return last index
+//            // if both are equal then it has occured only once.
+//            // through this we will get all index's which are occured once
+//            // but our answer is lowest index
+//            int index = s.indexOf(c);
+//            if(index!=-1&&index==s.lastIndexOf(c)){
+//                ans = Math.min(ans,index);
+//            }
+//        }
+//
+//        // If ans remain's Integer.MAX_VALUE then their is no unique character
+//        return ans==Integer.MAX_VALUE?-1:ans;
+//    }
+
+    public int firstUniqChar(String s) {
+        LinkedHashSet<Character> set  = new LinkedHashSet<>();
+        for(int j=0;j<s.length();j++){
+            set.add(s.charAt(j));
+        }
+        for(Character c:set){
+            if(s.indexOf(c) == s.lastIndexOf(c)){
+                return s.indexOf(c);
+            }
+        }
+        return -1;
+    }
+
+    public List<String> fizzBuzz(int n) {
+        List<String> list = new ArrayList<>();
+        for(int i=1;i<=n;i++){
+            if(i%3==0 && i%5==0){
+                list.add("FizzBuzz");
+            }
+            else if(i%3==0){
+                list.add("Fizz");
+            }
+            else if(i%5==0){
+                list.add("Buzz");
+            }
+            else{
+                list.add(Integer.toString(i));
+            }
+        }
+        return list;
+    }
+
+    public int findMissingNum(int[] arr){
+        int missing=0;
+        for(int i=1;i<arr.length-1;i++){
+            if((arr[i]+1)!=arr[i+1]){
+                missing = arr[i]+1;
+            }
+        }
+        return missing;
+    }
+
+    public boolean matchDateFormat(String date){
+        //Pattern pat = Pattern.compile("(^\\d{2}-\\d{2}-\\d{4}$)");
+        Pattern pat = Pattern.compile("(0[1-9]|[1-2][0-9]|3[0-1])-(0[1-9]|1[0-2])-(\\d{4})");
+        Matcher mat = pat.matcher(date);
+        return mat.find();
+    }
+
+    public char mostFreqChar(String str){
+        HashMap<Character,Integer> map = new HashMap<>();
+        str = str.toLowerCase();
+        char[] arr = str.toCharArray();
+        int max = 0;
+        char most = '0';
+        for(int i=0;i<arr.length;i++){
+            if(map.get(arr[i])==null){
+                map.put(arr[i],1);
+            }
+            else{
+                int count = map.get(arr[i])+1;
+                map.put(arr[i],count);
+                if(count>max) {
+                    max = count;
+                    most = arr[i];
+                }
+            }
+        }
+        return most;
+    }
+
+    public int lengthOfLongestSubstring(String s) {
+        int count = 0;
+        int max = 0;
+        char[] str = s.toCharArray();
+        HashSet<Character> set = new HashSet<>();
+        for(int i=0;i<str.length;i++){
+            if(!set.contains(str[i])){
+                set.add(str[i]);
+                ++count;
+            }else{
+                if(str[i]==str[i-1]) {
+                    count = 1;
+                    set = new HashSet<>();
+                    set.add(str[i]);
+                }
+                else {
+                    set.add(str[i]);
+                    count = set.size();
+                }
+            }
+            max = Math.max(max,count);
+        }
+        return max;
+    }
+
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int length = nums1.length+nums2.length;
+        int[] arr = new int[length];
+        int i=0,j=0,k=0;
+        while(i<nums1.length && j<nums2.length){
+            if(nums1[i]<nums2[j]){
+                arr[k]=nums1[i];
+                i++;
+            }else{
+                arr[k]=nums2[j];
+                j++;
+            }
+            k++;
+        }
     }
 
 }
