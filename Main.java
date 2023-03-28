@@ -63,14 +63,14 @@ public class Main {
 //        System.out.println("output: "+stn.maxProfit(prices));
 //        System.out.println("(125) Valid Palindrome");
 //        System.out.println("output: "+stn.isPalindrome("A man, a plan, a canal: Panama"));
-//        ListNode n1 = new ListNode(3);
-//        ListNode n2 = new ListNode(2);
-//        ListNode n3 = new ListNode(0);
-//        ListNode n4 = new ListNode(-4);
-//        n1.next = n2;
-//        n2.next = n3;
-//        n3.next = n4;
-//        n4.next = n2;
+        ListNode n1 = new ListNode(3);
+        ListNode n2 = new ListNode(2);
+        ListNode n3 = new ListNode(0);
+        ListNode n4 = new ListNode(-4);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n2;
 //        System.out.println("(141) Linked List Cycle");
 //        System.out.println("output: "+stn.hasCycle(n1));
 //        System.out.println("(144) Binary Tree Preorder Traversal");
@@ -165,6 +165,29 @@ public class Main {
         System.out.println("output: "+stn.mostFreqChar("leetcode"));
         System.out.println("(3) Longest Substring Without Repeating Characters");
         System.out.println("output: "+stn.lengthOfLongestSubstring("ckilbkd"));
+        n1 = new ListNode(1);
+        n2 = new ListNode(2);
+        n3 = new ListNode(3);
+        n4 = new ListNode(4);
+        //ListNode n5 = new ListNode(5);
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        ListNode m1 = new ListNode(3);
+        ListNode m2 = new ListNode(8);
+        ListNode m3 = new ListNode(4);
+        ListNode m4 = new ListNode(5);
+        m1.next = m2;
+        m2.next = m3;
+        m3.next = m4;
+        System.out.println("(2) Add Two Numbers");
+        System.out.println("output: "+stn.addTwoNumbers(n1,m1));
+        TreeNode node8 = new TreeNode(4);
+        TreeNode node7 = new TreeNode(3,node8,null);
+        TreeNode node6 = new TreeNode(2);
+        TreeNode start = new TreeNode(1,node6,node7);
+        System.out.println("(111) Minimum Depth of Binary Tree");
+        System.out.println("output: "+stn.minDepth(start));
     }
 }
 
@@ -897,21 +920,60 @@ class Solution{
         return max;
     }
 
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int length = nums1.length+nums2.length;
-        int[] arr = new int[length];
-        int i=0,j=0,k=0;
-        while(i<nums1.length && j<nums2.length){
-            if(nums1[i]<nums2[j]){
-                arr[k]=nums1[i];
-                i++;
-            }else{
-                arr[k]=nums2[j];
-                j++;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode head = new ListNode(0);
+        ListNode temp = head;
+        int val;
+        int car =0;
+        while(l1!=null || l2!=null || car!=0){
+            val = (l1!=null?l1.val:0) + (l2!=null?l2.val:0) +car;
+            if(l1!=null) {
+                l1.val = (val) % 10;
+                temp.next = l1;
             }
-            k++;
+            else if(l2!=null){
+                l2.val = (val) % 10;
+                temp.next = l2;
+            }
+            else{
+                temp.next = new ListNode(car);
+            }
+            car = val/10>=1?(val/10):0;
+            temp = temp.next;
+            l1 = l1!=null?l1.next:l1;
+            l2 = l2!=null?l2.next:l2;
         }
+
+        return head.next;
     }
+
+    public int minDepth(TreeNode root) {
+        if(root == null)
+            return 0;
+        else if(root.left==null && root.right==null)
+            return 1;
+        else if(root.left == null)
+            return 1 + minDepth(root.right);
+        else if(root.right == null)
+            return 1 + minDepth(root.left);
+        return Math.min(minDepth(root.left),minDepth(root.right)) +1;
+    }
+
+//    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+//        int length = nums1.length+nums2.length;
+//        int[] arr = new int[length];
+//        int i=0,j=0,k=0;
+//        while(i<nums1.length && j<nums2.length){
+//            if(nums1[i]<nums2[j]){
+//                arr[k]=nums1[i];
+//                i++;
+//            }else{
+//                arr[k]=nums2[j];
+//                j++;
+//            }
+//            k++;
+//        }
+//    }
 
 }
 
