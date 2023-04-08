@@ -188,6 +188,15 @@ public class Main {
         TreeNode start = new TreeNode(1,node6,node7);
         System.out.println("(111) Minimum Depth of Binary Tree");
         System.out.println("output: "+stn.minDepth(start));
+        TreeNode node12 = new TreeNode(3);
+        TreeNode node11 = new TreeNode(1);
+        TreeNode node10 = new TreeNode(5);
+        TreeNode node9 = new TreeNode(2,node11,node12);
+        TreeNode root2 = new TreeNode(4,node9,node10);
+        System.out.println("If the tree is Binary Search Tree");
+        System.out.println("output: "+stn.isBST(root2));
+        System.out.println("Excel Sheet Column title");
+        System.out.println("output: "+stn.numberToTitle(701));
     }
 }
 
@@ -958,22 +967,30 @@ class Solution{
             return 1 + minDepth(root.left);
         return Math.min(minDepth(root.left),minDepth(root.right)) +1;
     }
+    
+    public boolean isBST(TreeNode root){
+        if(root == null)
+            return true;
+        if(root.left!=null && maxValue(root.left)> root.val)
+            return false;
+        if(root.right!=null && minValue(root.right)< root.val)
+            return false;
+        if(isBST(root.left)!=true && isBST(root.right)!=true)
+            return false;
+        return true;
+    }
 
-//    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-//        int length = nums1.length+nums2.length;
-//        int[] arr = new int[length];
-//        int i=0,j=0,k=0;
-//        while(i<nums1.length && j<nums2.length){
-//            if(nums1[i]<nums2[j]){
-//                arr[k]=nums1[i];
-//                i++;
-//            }else{
-//                arr[k]=nums2[j];
-//                j++;
-//            }
-//            k++;
-//        }
-//    }
+    public String numberToTitle(int num){
+        int rem = 0;
+        String title = "";
+        while(num > 0){
+            rem = num%26;
+            num = num/26;
+            char val = (char)(64+rem);
+            title = val + title;
+        }
+        return title;
+    }
 
 }
 
