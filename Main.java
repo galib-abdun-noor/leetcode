@@ -968,6 +968,18 @@ class Solution{
         return Math.min(minDepth(root.left),minDepth(root.right)) +1;
     }
     
+    public int maxValue(TreeNode node){
+        if(node == null)
+            return Integer.MIN_VALUE;
+        return Math.max(maxValue(node.left),maxValue(node.right));
+    }
+
+    public int minValue(TreeNode node){
+        if(node == null)
+            return Integer.MAX_VALUE;
+        return Math.max(minValue(node.left),minValue(node.right));
+    }
+    
     public boolean isBST(TreeNode root){
         if(root == null)
             return true;
