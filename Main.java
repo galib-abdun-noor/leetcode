@@ -12,57 +12,58 @@ public class Main {
 //        List<String> events = new ArrayList<>();
 
         Solution stn = new Solution();
-//        int trib = stn.tribonacci(4);
-//        System.out.println(trib);
-//
-//        boolean flag = stn.isPalindrome(121);
-//        System.out.println(flag);
-//        int[] nums = {1,1,2};
-//        System.out.println(stn.removeDuplicates(nums));
-//        int[] nums2 = {0,1,2,2,3,0,4,2};
-//        System.out.println(stn.removeElement(nums2,2));
-//        System.out.println("(35) Search Insert Position:");
-//        System.out.println("Output: "+stn.searchInsert(nums2,3));
-//        String sent = "   fly me   to   the moon  ";
-//        System.out.println("(58) Length of Last Word");
-//        System.out.println("Output: "+stn.lengthOfLastWord(sent));
-//        System.out.println("(66) Plus One");
-//        System.out.println("output: "+stn.plusOne(nums));
-//        System.out.println("(67) Add Binary");
-//        System.out.println("output: "+stn.addBinary("1010", "1011"));
-//        System.out.println("(69) Sqrt(x)");
-//        System.out.println("output: "+stn.mySqrt(2147483647));
-//        System.out.println("(70) Climbing Stairs");
-//        System.out.println("output: "+stn.climbStairs(3));
-//        int[] nums1 = {1,2,3,0,0,0};
-//        int[] nums3 = {2,5,6};
-//        System.out.println("(88) Merge Sorted Array");
-//        System.out.print("output: ");
-//        stn.merge(nums1, 3, nums3, 3);
-//        TreeNode node3 = new TreeNode(3);
-//        TreeNode node2 = new TreeNode(2,node3,null);
-//        TreeNode root = new TreeNode(1,null,node2);
-//        System.out.println("(94) Binary Tree Inorder Traversal");
-//        List<Integer> tree = stn.inorderTraversal(root);
-//        for(Integer m:tree){
-//            System.out.print(m+" ");
-//        }
-//        TreeNode node4 = new TreeNode(3);
-//        TreeNode node5 = new TreeNode(2,node4,null);
-//        TreeNode base = new TreeNode(1,null,node5);
-//        System.out.println("(100) Same Tree");
-//        System.out.println("output: "+stn.isSameTree(root,base));
-//        System.out.println("(104) Maximum Depth of Binary Tree");
-//        System.out.println("output: "+stn.maxDepth(root));
-//        System.out.println("(118) Pascal's Triangle");
-//        System.out.println("output: "+stn.generate(5));
-//        System.out.println("(119) Pascal's Triangle II");
-//        System.out.println("output: "+stn.getRow(5));
-//        int[] prices = {7,1,5,3,6,4};
-//        System.out.println("(121) Best Time to Buy and Sell Stock");
-//        System.out.println("output: "+stn.maxProfit(prices));
-//        System.out.println("(125) Valid Palindrome");
-//        System.out.println("output: "+stn.isPalindrome("A man, a plan, a canal: Panama"));
+        int trib = stn.tribonacci(4);
+        System.out.println(trib);
+
+        boolean flag = stn.isPalindrome(121);
+        System.out.println(flag);
+        int[] nums = {1,1,2};
+        System.out.println("Remove duplicate numbers from array");
+        System.out.println(stn.removeDuplicates(nums));
+        int[] nums2 = {0,1,2,2,3,0,4,2};
+        System.out.println(stn.removeElement(nums2,2));
+        System.out.println("(35) Search Insert Position:");
+        System.out.println("Output: "+stn.searchInsert(nums2,3));
+        String sent = "   fly me   to   the moon  ";
+        System.out.println("(58) Length of Last Word");
+        System.out.println("Output: "+stn.lengthOfLastWord(sent));
+        System.out.println("(66) Plus One");
+        System.out.println("output: "+stn.plusOne(nums));
+        System.out.println("(67) Add Binary");
+        System.out.println("output: "+stn.addBinary("1010", "1011"));
+        System.out.println("(69) Sqrt(x)");
+        System.out.println("output: "+stn.mySqrt(2147483647));
+        System.out.println("(70) Climbing Stairs");
+        System.out.println("output: "+stn.climbStairs(3));
+        int[] nums1 = {1,2,3,0,0,0};
+        int[] nums3 = {2,5,6};
+        System.out.println("(88) Merge Sorted Array");
+        System.out.print("output: ");
+        stn.merge(nums1, 3, nums3, 3);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node2 = new TreeNode(2,node3,null);
+        TreeNode root = new TreeNode(1,null,node2);
+        System.out.println("(94) Binary Tree Inorder Traversal");
+        List<Integer> tree = stn.inorderTraversal(root);
+        for(Integer m:tree){
+            System.out.print(m+" ");
+        }
+        TreeNode node4 = new TreeNode(3);
+        TreeNode node5 = new TreeNode(2,node4,null);
+        TreeNode base = new TreeNode(1,null,node5);
+        System.out.println("(100) Same Tree");
+        System.out.println("output: "+stn.isSameTree(root,base));
+        System.out.println("(104) Maximum Depth of Binary Tree");
+        System.out.println("output: "+stn.maxDepth(root));
+        System.out.println("(118) Pascal's Triangle");
+        System.out.println("output: "+stn.generate(5));
+        System.out.println("(119) Pascal's Triangle II");
+        System.out.println("output: "+stn.getRow(5));
+        int[] prices = {7,1,5,3,6,4};
+        System.out.println("(121) Best Time to Buy and Sell Stock");
+        System.out.println("output: "+stn.maxProfit(prices));
+        System.out.println("(125) Valid Palindrome");
+        System.out.println("output: "+stn.isPalindrome("A man, a plan, a canal: Panama"));
         ListNode n1 = new ListNode(3);
         ListNode n2 = new ListNode(2);
         ListNode n3 = new ListNode(0);
@@ -165,42 +166,51 @@ public class Main {
         System.out.println("output: "+stn.mostFreqChar("leetcode"));
         System.out.println("(3) Longest Substring Without Repeating Characters");
         System.out.println("output: "+stn.lengthOfLongestSubstring("ckilbkd"));
-        n1 = new ListNode(1);
-        n2 = new ListNode(2);
-        n3 = new ListNode(3);
-        n4 = new ListNode(4);
-        //ListNode n5 = new ListNode(5);
-        n1.next = n2;
-        n2.next = n3;
-        n3.next = n4;
-        ListNode m1 = new ListNode(3);
-        ListNode m2 = new ListNode(8);
-        ListNode m3 = new ListNode(4);
-        ListNode m4 = new ListNode(5);
-        m1.next = m2;
-        m2.next = m3;
-        m3.next = m4;
-        System.out.println("(2) Add Two Numbers");
-        System.out.println("output: "+stn.addTwoNumbers(n1,m1));
-        TreeNode node8 = new TreeNode(4);
-        TreeNode node7 = new TreeNode(3,node8,null);
-        TreeNode node6 = new TreeNode(2);
-        TreeNode start = new TreeNode(1,node6,node7);
-        System.out.println("(111) Minimum Depth of Binary Tree");
-        System.out.println("output: "+stn.minDepth(start));
-        TreeNode node12 = new TreeNode(3);
-        TreeNode node11 = new TreeNode(1);
-        TreeNode node10 = new TreeNode(5);
-        TreeNode node9 = new TreeNode(2,node11,node12);
-        TreeNode root2 = new TreeNode(4,node9,node10);
-        System.out.println("If the tree is Binary Search Tree");
-        System.out.println("output: "+stn.isBST(root2));
-        System.out.println("Excel Sheet Column title");
-        System.out.println("output: "+stn.numberToTitle(701));
+//        n1 = new ListNode(1);
+//        n2 = new ListNode(2);
+//        n3 = new ListNode(3);
+//        n4 = new ListNode(4);
+//        //ListNode n5 = new ListNode(5);
+//        n1.next = n2;
+//        n2.next = n3;
+//        n3.next = n4;
+//        ListNode m1 = new ListNode(3);
+//        ListNode m2 = new ListNode(8);
+//        ListNode m3 = new ListNode(4);
+//        ListNode m4 = new ListNode(5);
+//        m1.next = m2;
+//        m2.next = m3;
+//        m3.next = m4;
+//        System.out.println("(2) Add Two Numbers");
+//        System.out.println("output: "+stn.addTwoNumbers(n1,m1));
+//        TreeNode node8 = new TreeNode(4);
+//        TreeNode node7 = new TreeNode(3,node8,null);
+//        TreeNode node6 = new TreeNode(2);
+//        TreeNode start = new TreeNode(1,node6,node7);
+//        System.out.println("(111) Minimum Depth of Binary Tree");
+//        System.out.println("output: "+stn.minDepth(start));
+//        TreeNode node12 = new TreeNode(3);
+//        TreeNode node11 = new TreeNode(1);
+//        TreeNode node10 = new TreeNode(5);
+//        TreeNode node9 = new TreeNode(2,node11,node12);
+//        TreeNode root2 = new TreeNode(4,node9,node10);
+//        System.out.println("If the tree is Binary Search Tree");
+//        System.out.println("output: "+stn.isBST(root2));
+//        System.out.println("Excel Sheet Column title");
+//        System.out.println("output: "+stn.numberToTitle(701));
         int[] nums7 = {1,2};
         int[] nums8 = {3,4};
         System.out.println("4. Median of Two Sorted Arrays");
         System.out.println("output: "+stn.findMedianSortedArrays(nums7,nums8));
+        TreeNode node18 = new TreeNode(3);
+        TreeNode node17 = new TreeNode(4);
+        TreeNode node16 = new TreeNode(4);
+        TreeNode node15 = new TreeNode(3);
+        TreeNode node14 = new TreeNode(2,node17,node18);
+        TreeNode node13 = new TreeNode(2,node15,node16);
+        TreeNode root3 = new TreeNode(1,node13,node14);
+        System.out.println("(101) Symmetric Tree");
+        System.out.println("output: "+stn.isSymmetric(root3));
     }
 }
 
@@ -925,7 +935,9 @@ class Solution{
                 }
                 else {
                     set.add(str[i]);
-                    count = set.size();
+                    max = Math.max(max,set.size());
+                    count = 0;
+                    continue;
                 }
             }
             max = Math.max(max,count);
@@ -971,7 +983,29 @@ class Solution{
             return 1 + minDepth(root.left);
         return Math.min(minDepth(root.left),minDepth(root.right)) +1;
     }
-    
+
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int length = nums1.length+nums2.length;
+        int[] arr = new int[length];
+        int i=0,j=0,k=0;
+        while(i<nums1.length && j<nums2.length){
+            if(nums1[i]<nums2[j]){
+                arr[k]=nums1[i];
+                i++;
+            }else{
+                arr[k]=nums2[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<nums1.length || j<nums2.length){
+            arr[k] = i<nums1.length?(arr[k]=nums1[i++]):(arr[k]=nums2[j++]);
+            k++;
+        }
+        double med = (length%2==0)?((Double.valueOf(arr[length/2-1])+Double.valueOf(arr[length/2]))/2):arr[length/2];
+        return med;
+    }
+
     public int maxValue(TreeNode node){
         if(node == null)
             return Integer.MIN_VALUE;
@@ -983,7 +1017,7 @@ class Solution{
             return Integer.MAX_VALUE;
         return Math.max(minValue(node.left),minValue(node.right));
     }
-    
+
     public boolean isBST(TreeNode root){
         if(root == null)
             return true;
@@ -1007,27 +1041,40 @@ class Solution{
         }
         return title;
     }
-    
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int length = nums1.length+nums2.length;
-        int[] arr = new int[length];
-        int i=0,j=0,k=0;
-        while(i<nums1.length && j<nums2.length){
-            if(nums1[i]<nums2[j]){
-                arr[k]=nums1[i];
-                i++;
-            }else{
-                arr[k]=nums2[j];
-                j++;
+
+    public boolean isSymmetric(TreeNode root) {
+        TreeNode temp = root;
+        TreeNode temp2 = root;
+        Stack<TreeNode> stl = new Stack<>();
+        Stack<TreeNode> str = new Stack<>();
+        boolean flag = true;
+        while(temp != null || temp2 != null || !stl.isEmpty() || !str.isEmpty()){
+            if(temp != null && temp2 != null) {
+                if (temp.val == temp2.val) {
+                    if(temp != temp2) {
+                        stl.push(temp);
+                        str.push(temp2);
+                    }
+                    temp = temp.left;
+                    temp2 = temp2.right;
+                }
+                else{
+                    flag = false;
+                    break;
+                }
             }
-            k++;
+            else if(temp == null && temp2 == null){
+                temp = stl.pop();
+                temp2= str.pop();
+                temp = temp.right;
+                temp2 = temp2.left;
+            }
+            else{
+                flag = false;
+                break;
+            }
         }
-        while(i<nums1.length || j<nums2.length){
-            arr[k] = i<nums1.length?(arr[k]=nums1[i++]):(arr[k]=nums2[j++]);
-            k++;
-        }
-        double med = (length%2==0)?((Double.valueOf(arr[length/2-1])+Double.valueOf(arr[length/2]))/2):arr[length/2];
-        return med;
+        return flag;
     }
 
 }
