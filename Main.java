@@ -211,6 +211,27 @@ public class Main {
         TreeNode root3 = new TreeNode(1,node13,node14);
         System.out.println("(101) Symmetric Tree");
         System.out.println("output: "+stn.isSymmetric(root3));
+        ListNode l1 = new ListNode(4);
+        ListNode l2 = new ListNode(1);
+        ListNode l3 = new ListNode(8);
+        ListNode l4 = new ListNode(4);
+        ListNode l5 = new ListNode(5);
+
+        ListNode r1 = new ListNode(5);
+        ListNode r2 = new ListNode(6);
+        ListNode r3 = new ListNode(1);
+
+        l1.next = l2;
+        l2.next = l3;
+        l3.next = l4;
+        l4.next = l5;
+
+        r1.next = r2;
+        r2.next = r3;
+        r3.next = l3;
+        int val = stn.getIntersectionNode(l1,r1).val;
+        System.out.println("(160) Intersection of Two Linked Lists");
+        System.out.println("Intersected at: "+val);
     }
 }
 
@@ -1075,6 +1096,24 @@ class Solution{
             }
         }
         return flag;
+    }
+    
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode tempA = headA;
+        ListNode tempB = headB;
+        ListNode target = null;
+        while(tempA != null){
+            tempB = headB;
+            while(tempB != null){
+                if(tempB == tempA){
+                    target = tempA;
+                    return target;
+                }
+                tempB = tempB.next;
+            }
+            tempA = tempA.next;
+        }
+        return target;
     }
 
 }
