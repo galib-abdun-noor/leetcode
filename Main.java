@@ -232,6 +232,10 @@ public class Main {
         int val = stn.getIntersectionNode(l1,r1).val;
         System.out.println("(160) Intersection of Two Linked Lists");
         System.out.println("Intersected at: "+val);
+        System.out.println("(7) Reverse Integer\n");
+        System.out.println("output: "+stn.reverse(1534236469));
+        System.out.println("(8) String to Integer (atoi)\n");
+        System.out.println("output: "+stn.myAtoi("words and 987"));
     }
 }
 
@@ -947,21 +951,16 @@ class Solution{
         for(int i=0;i<str.length;i++){
             if(!set.contains(str[i])){
                 set.add(str[i]);
-                ++count;
+                max = Math.max(max,i-count+1);
             }else{
-                if(str[i]==str[i-1]) {
-                    count = 1;
-                    set = new HashSet<>();
-                    set.add(str[i]);
+                while(str[i]!=str[count]){
+                    set.remove(str[count]);
+                    count++;
                 }
-                else {
-                    set.add(str[i]);
-                    max = Math.max(max,set.size());
-                    count = 0;
-                    continue;
-                }
+                set.remove(str[count]);
+                count++;
+                set.add(str[i]);
             }
-            max = Math.max(max,count);
         }
         return max;
     }
@@ -1097,7 +1096,7 @@ class Solution{
         }
         return flag;
     }
-    
+
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode tempA = headA;
         ListNode tempB = headB;
@@ -1114,6 +1113,49 @@ class Solution{
             tempA = tempA.next;
         }
         return target;
+    }
+
+    public int reverse(int x) {
+        int temp = x;
+        long num = 0;
+        while(temp!=0){
+            int lastDig = temp%10;
+            num += lastDig;
+            num = num*10;
+            temp = temp/10;
+        }
+        num = num/10;
+        if(num>Integer.MAX_VALUE || num<Integer.MIN_VALUE)
+            return 0;
+
+        return (int)num;
+    }
+
+    public int myAtoi(String s) {
+        if(s.matches("^[A-Za-z]")){
+
+        }
+        else{
+            s = s.replaceAll("\\s|[a-zA-Z]","");
+        }
+        char[] ch = s.toCharArray();
+        int sign = 1;
+        long num = 0;
+        for(int i=0;i<ch.length;i++){
+            if(ch[i]=='-') {
+                sign = -1;
+                continue;
+            }
+            int lastDig = ch[i];
+            num=num+lastDig-'0';
+            num = num*10;
+        }
+        num=num/10;
+        if(num>Integer.MAX_VALUE)
+            return Integer.MAX_VALUE;
+        else if(num<Integer.MIN_VALUE)
+            return Integer.MIN_VALUE;
+        return (int)(sign*num);
     }
 
 }
