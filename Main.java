@@ -235,7 +235,12 @@ public class Main {
         System.out.println("(7) Reverse Integer\n");
         System.out.println("output: "+stn.reverse(1534236469));
         System.out.println("(8) String to Integer (atoi)\n");
-        System.out.println("output: "+stn.myAtoi("words and 987"));
+        System.out.println("output: "+stn.myAtoi("   -42"));
+        System.out.println("(13) Roman to Integer\n");
+        System.out.println("output: "+stn.romanToInt("MCMXCIV"));
+        int[] threeSum = {-2,0,1,1,2};
+        System.out.println("(15) 3Sum\n");
+        System.out.println("output: "+stn.threeSum(threeSum));
     }
 }
 
@@ -1132,30 +1137,95 @@ class Solution{
     }
 
     public int myAtoi(String s) {
-        if(s.matches("^[A-Za-z]")){
-
-        }
-        else{
-            s = s.replaceAll("\\s|[a-zA-Z]","");
-        }
-        char[] ch = s.toCharArray();
+        s = s.replaceAll("\\s","");
         int sign = 1;
-        long num = 0;
-        for(int i=0;i<ch.length;i++){
-            if(ch[i]=='-') {
+        int ind = 0;
+        if(s.charAt(0)<'0'||s.charAt(0)>'9'){
+            if(s.charAt(0) == '-') {
                 sign = -1;
-                continue;
+                ind++;
             }
-            int lastDig = ch[i];
+            else if(s.charAt(0) == '+') {
+                sign = 1;
+                ind++;
+            }
+            else
+                return 0;
+        }
+        s = s.replaceAll("[a-zA-Z]","");
+        char[] ch = s.toCharArray();
+        long num = 0;
+        while(ind<ch.length){
+            int lastDig = ch[ind];
             num=num+lastDig-'0';
             num = num*10;
+            ind++;
         }
-        num=num/10;
+        num=num/10*sign;
         if(num>Integer.MAX_VALUE)
             return Integer.MAX_VALUE;
         else if(num<Integer.MIN_VALUE)
             return Integer.MIN_VALUE;
-        return (int)(sign*num);
+        return (int)(num);
+    }
+
+    public int romanToInt(String s) {
+        HashMap<Character,Integer> rom = new HashMap<>();
+        rom.put('I',1);
+        rom.put('V',5);
+        rom.put('X',10);
+        rom.put('L',50);
+        rom.put('C',100);
+        rom.put('D',500);
+        rom.put('M',1000);
+
+        char[] arr = s.toCharArray();
+        int i=0;
+        int val = 0;
+        while(i<arr.length){
+            if(i<arr.length-1){
+                if(rom.get(arr[i])>=rom.get(arr[i+1])){
+                    val = val+rom.get(arr[i]);
+                    i++;
+                }
+                else{
+                    val = val+rom.get(arr[i+1])-rom.get(arr[i]);
+                    i = i+2;
+                }
+            }
+            else {
+                val = val + rom.get(arr[i]);
+                i++;
+            }
+        }
+        return val;
+    }
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        int sum=0;
+        List<List<Integer>> rslt = new ArrayList<>();
+        for(int i=0;i<nums.length-2;i++){
+            int j=i+1;
+            int k=i+2;
+            while(j<k){
+                List<Integer> list = new ArrayList<>();
+                sum = nums[i]+nums[j]+nums[k];
+                if(sum==0){
+                    list.add(nums[i]);
+                    list.add(nums[j]);
+                    list.add(nums[k]);
+                    Collections.sort(list);
+                    if(!rslt.contains(list))
+                        rslt.add(list);
+                }
+                if(k>=nums.length-2) {
+                    ++j;
+                    k=j;
+                }
+                k++;
+            }
+        }
+        return rslt;
     }
 
 }
