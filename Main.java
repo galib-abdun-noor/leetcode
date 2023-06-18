@@ -238,9 +238,25 @@ public class Main {
         System.out.println("output: "+stn.myAtoi("   -42"));
         System.out.println("(13) Roman to Integer\n");
         System.out.println("output: "+stn.romanToInt("MCMXCIV"));
-        int[] threeSum = {-2,0,1,1,2};
-        System.out.println("(15) 3Sum\n");
-        System.out.println("output: "+stn.threeSum(threeSum));
+//        int[] threeSum = {-2,0,1,1,2};
+//        System.out.println("(15) 3Sum\n");
+//        System.out.println("output: "+stn.threeSum(threeSum));
+        ListNode s1 = new ListNode(1);
+        ListNode s2 = new ListNode(2);
+        ListNode s3 = new ListNode(6);
+        ListNode s4 = new ListNode(3);
+        ListNode s5 = new ListNode(4);
+        ListNode s6 = new ListNode(5);
+        ListNode s7 = new ListNode(6);
+        s1.next = s2;
+        s2.next = s3;
+        s3.next = s4;
+        s4.next = s5;
+        s5.next = s6;
+        s6.next = s7;
+        ListNode t1 = new ListNode();
+        System.out.println("(203) Remove Linked List Elements\n");
+        System.out.println("output: "+stn.removeElements(s1,6));
     }
 }
 
@@ -1226,6 +1242,24 @@ class Solution{
             }
         }
         return rslt;
+    }
+
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode prev = new ListNode();
+        prev.next = head;
+        ListNode temp = prev;
+        if(head==null){
+            return null;
+        }
+        while(temp.next != null){
+            if(temp.next.val == val){
+                temp.next = temp.next.next;
+            }
+            else {
+                temp = temp.next;
+            }
+        }
+        return prev.next;
     }
 
 }
