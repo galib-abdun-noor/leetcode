@@ -238,9 +238,9 @@ public class Main {
         System.out.println("output: "+stn.myAtoi("   -42"));
         System.out.println("(13) Roman to Integer\n");
         System.out.println("output: "+stn.romanToInt("MCMXCIV"));
-//        int[] threeSum = {-2,0,1,1,2};
-//        System.out.println("(15) 3Sum\n");
-//        System.out.println("output: "+stn.threeSum(threeSum));
+        int[] threeSum = {-2,0,1,1,2};
+        System.out.println("(15) 3Sum\n");
+        System.out.println("output: "+stn.threeSum(threeSum));
         ListNode s1 = new ListNode(1);
         ListNode s2 = new ListNode(2);
         ListNode s3 = new ListNode(6);
@@ -257,6 +257,8 @@ public class Main {
         ListNode t1 = new ListNode();
         System.out.println("(203) Remove Linked List Elements\n");
         System.out.println("output: "+stn.removeElements(s1,6));
+        System.out.println("1768. Merge Strings Alternately\n");
+        System.out.println("output: "+stn.mergeAlternately("abc","pqr"));
     }
 }
 
@@ -1260,6 +1262,35 @@ class Solution{
             }
         }
         return prev.next;
+    }
+
+    public String mergeAlternately(String word1, String word2) {
+        char[] w1 = word1.toCharArray();
+        char[] w2 = word2.toCharArray();
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        String str = "";
+        while(i<w1.length && j<w2.length){
+            if(k%2==0){
+                str = str.concat(Character.toString(w1[i]));
+                i++;
+            }else{
+                str = str.concat(Character.toString(w2[j]));
+                j++;
+            }
+            k++;
+        }
+        while(i<w1.length || j<w2.length){
+            if(i<w1.length){
+                str = str.concat(Character.toString(w1[i]));
+                i++;
+            }else{
+                str = str.concat(Character.toString(w2[j]));
+                j++;
+            }
+        }
+        return str;
     }
 
 }
