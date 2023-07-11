@@ -240,25 +240,15 @@ public class Main {
         System.out.println("output: "+stn.romanToInt("MCMXCIV"));
         int[] threeSum = {-2,0,1,1,2};
         System.out.println("(15) 3Sum\n");
-        System.out.println("output: "+stn.threeSum(threeSum));
-        ListNode s1 = new ListNode(1);
-        ListNode s2 = new ListNode(2);
-        ListNode s3 = new ListNode(6);
-        ListNode s4 = new ListNode(3);
-        ListNode s5 = new ListNode(4);
-        ListNode s6 = new ListNode(5);
-        ListNode s7 = new ListNode(6);
-        s1.next = s2;
-        s2.next = s3;
-        s3.next = s4;
-        s4.next = s5;
-        s5.next = s6;
-        s6.next = s7;
-        ListNode t1 = new ListNode();
-        System.out.println("(203) Remove Linked List Elements\n");
-        System.out.println("output: "+stn.removeElements(s1,6));
-        System.out.println("1768. Merge Strings Alternately\n");
-        System.out.println("output: "+stn.mergeAlternately("abc","pqr"));
+        //System.out.println("output: "+stn.threeSum(threeSum));
+        int[] nums4 = {1,2,3,1,2,3};
+        System.out.println("(219) Contains Duplicate II\n");
+        System.out.println("output: "+stn.containsNearbyDuplicate(nums4,2));
+        System.out.println("258. Add Digits\n");
+        System.out.println("output: "+stn.addDigits(38));
+        int[] candies = {2,3,5,1,3};
+        System.out.println("(1431) Kids With the Greatest Number of Candies\n");
+        System.out.println("output: "+stn.kidsWithCandies(candies,3));
     }
 }
 
@@ -1246,53 +1236,51 @@ class Solution{
         return rslt;
     }
 
-    public ListNode removeElements(ListNode head, int val) {
-        ListNode prev = new ListNode();
-        prev.next = head;
-        ListNode temp = prev;
-        if(head==null){
-            return null;
-        }
-        while(temp.next != null){
-            if(temp.next.val == val){
-                temp.next = temp.next.next;
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        HashSet<Integer> hset = new HashSet<>();
+        int j=0;
+        for(int i=0;i<nums.length;i++){
+            if(hset.contains(nums[i])){
+                return true;
+            }else{
+                hset.add(nums[i]);
             }
-            else {
-                temp = temp.next;
+            if(hset.size()>=k+1){
+                hset.remove(nums[j++]);
             }
         }
-        return prev.next;
+        return false;
     }
 
-    public String mergeAlternately(String word1, String word2) {
-        char[] w1 = word1.toCharArray();
-        char[] w2 = word2.toCharArray();
-        int i = 0;
-        int j = 0;
-        int k = 0;
-        String str = "";
-        while(i<w1.length && j<w2.length){
-            if(k%2==0){
-                str = str.concat(Character.toString(w1[i]));
-                i++;
-            }else{
-                str = str.concat(Character.toString(w2[j]));
-                j++;
-            }
-            k++;
-        }
-        while(i<w1.length || j<w2.length){
-            if(i<w1.length){
-                str = str.concat(Character.toString(w1[i]));
-                i++;
-            }else{
-                str = str.concat(Character.toString(w2[j]));
-                j++;
+    public int addDigits(int num) {
+        while(num%10 != num){
+            int dig = num;
+            int n=0;
+            while(dig!=0){
+                n = dig%10 + n;
+                dig=dig/10;
+                if(dig==0)
+                    num = n;
             }
         }
-        return str;
+        return num;
     }
 
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int max = Integer.MIN_VALUE;
+        List<Boolean> bolList = new ArrayList<>();
+        for(int i=0;i<candies.length;i++){
+            max = Integer.max(max,candies[i]);
+        }
+        for(int j=0;j<candies.length;j++){
+            if((candies[j]+extraCandies)>=max)
+                bolList.add(true);
+            else{
+                bolList.add(false);
+            }
+        }
+        return bolList;
+    }
 }
 
 class TreeNode {
@@ -1305,6 +1293,22 @@ class TreeNode {
         this.val = val;
         this.left = left;
         this.right = right;
+    }
+
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int max = Integer.MIN_VALUE;
+        List<Boolean> bolList = new ArrayList<>();
+        for(int i=0;i<candies.length;i++){
+            max = Integer.max(max,candies[i]);
+        }
+        for(int j=0;j<candies.length;j++){
+            if((candies[j]+extraCandies)>=max)
+                bolList.add(true);
+            else{
+                bolList.add(false);
+            }
+        }
+        return bolList;
     }
 }
 class ListNode {
