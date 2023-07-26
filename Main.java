@@ -249,6 +249,11 @@ public class Main {
         int[] candies = {2,3,5,1,3};
         System.out.println("(1431) Kids With the Greatest Number of Candies\n");
         System.out.println("output: "+stn.kidsWithCandies(candies,3));
+        int[] flowerbed = {1,0,0,0,1};
+        System.out.println("(605) Can Place Flowers\n");
+        System.out.println("output: "+stn.canPlaceFlowers(flowerbed,1));
+        System.out.println("(345) Reverse Vowels of a String\n");
+        System.out.println("output: "+stn.reverseVowels("aA"));
     }
 }
 
@@ -1280,6 +1285,78 @@ class Solution{
             }
         }
         return bolList;
+    }
+
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        if(flowerbed.length==1){
+            if (flowerbed[0] == 0)
+                return true;
+            else if(flowerbed[0] == 1 && n==0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        for(int i=0;i<flowerbed.length;i++){
+            if(i==0) {
+                if (flowerbed[i] == 0 && flowerbed[i + 1] == 0) {
+                    n--;
+                    flowerbed[i] = 1;
+                }
+            }
+            else if(i==flowerbed.length-1){
+                if (flowerbed[i - 1] == 0 && flowerbed[i] == 0) {
+                    n--;
+                    flowerbed[i] = 1;
+                }
+            }
+            else{
+                if (flowerbed[i - 1] == 0 && flowerbed[i] == 0 && flowerbed[i + 1] == 0) {
+                    n--;
+                    flowerbed[i] = 1;
+                }
+            }
+        }
+        return n<=0?true:false;
+    }
+
+    public String reverseVowels(String s) {
+        List<Character> vowels = new ArrayList<>();
+        vowels.add('a');
+        vowels.add('e');
+        vowels.add('i');
+        vowels.add('o');
+        vowels.add('u');
+        vowels.add('A');
+        vowels.add('E');
+        vowels.add('I');
+        vowels.add('O');
+        vowels.add('U');
+        List<Integer> charList = new ArrayList<>();
+
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            int t = s.charAt(i);
+            if(vowels.contains(c)){
+                charList.add(t);
+            }
+        }
+        int j = charList.size()-1;
+        String newS = "";
+        for(int k=0;k<s.length();k++){
+            char c = s.charAt(k);
+            int t = s.charAt(k);
+            if(charList.contains(t)){
+                int dog = charList.get(j);
+                newS = newS + (char)dog;
+                j--;
+            }
+            else{
+                newS = newS+s.charAt(k);
+            }
+        }
+        return newS;
     }
 }
 
