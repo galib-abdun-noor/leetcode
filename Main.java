@@ -1333,30 +1333,89 @@ class Solution{
         vowels.add('I');
         vowels.add('O');
         vowels.add('U');
-        List<Integer> charList = new ArrayList<>();
+        char[] word = s.toCharArray();
+        int strt = 0;
+        int end = s.length()-1;
 
-        for(int i=0;i<s.length();i++){
-            char c = s.charAt(i);
-            int t = s.charAt(i);
-            if(vowels.contains(c)){
-                charList.add(t);
+        while(strt<end){
+            while(strt < end && vowels.contains(word[strt])==false){
+                strt++;
+            }
+            while (strt < end && vowels.contains(word[end])==false){
+                end--;
+            }
+            char temp = word[strt];
+            word[strt] = word[end];
+            word[end] = temp;
+            strt++;
+            end--;
+        }
+        String result = new String(word);
+        return result;
+    }
+
+    public String reverseWords(String s) {
+        String[] words = s.split(" ");
+        String sent = "";
+        for (int i=0;i<words.length;i++) {
+            if(!words[i].equalsIgnoreCase("") && !words[i].equals(null)) {
+                if(sent.equalsIgnoreCase("")){
+                    sent = words[i];
+                }else {
+                    sent = words[i] + " " + sent;
+                }
             }
         }
-        int j = charList.size()-1;
-        String newS = "";
-        for(int k=0;k<s.length();k++){
-            char c = s.charAt(k);
-            int t = s.charAt(k);
-            if(charList.contains(t)){
-                int dog = charList.get(j);
-                newS = newS + (char)dog;
-                j--;
+        return sent;
+    }
+
+    public int[] productExceptSelf(int[] nums) {
+        int product = 0;
+        List<Integer> zeroInd = new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==0){
+                zeroInd.add(i);
+            }else{
+                product = nums[i]*product;
+            }
+        }
+        for(int j =0;j<nums.length;j++){
+            if(!zeroInd.isEmpty() && nums[j]!=0){
+                nums[j] = 0;
+            }
+            else if(!zeroInd.isEmpty() && nums[j]==0){
+                nums[j] = product;
             }
             else{
-                newS = newS+s.charAt(k);
+                nums[j] = product/nums[j];
             }
         }
-        return newS;
+        return nums;
+    }
+
+    public String intToRoman(int num) {
+        HashMap<String,Integer> rom = new LinkedHashMap<>();
+        rom.put("M",1000);
+        rom.put("CM",900);
+        rom.put("D",500);
+        rom.put("CD",400);
+        rom.put("C",100);
+        rom.put("XC",90);
+        rom.put("L",50);
+        rom.put("XL",40);
+        rom.put("X",10);
+        rom.put("IX",9);
+        rom.put("V",5);
+        rom.put("IV",4);
+        rom.put("I",1);
+
+        while (num>0){
+            for(Map.Entry<String,Integer> entry:rom.entrySet()){
+                if((num-entry.getValue())>0){
+
+                }
+            }
+        }
     }
 }
 
