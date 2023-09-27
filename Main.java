@@ -1241,6 +1241,53 @@ class Solution{
         return rslt;
     }
 
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode prev = new ListNode();
+        prev.next = head;
+        ListNode temp = prev;
+        if(head==null){
+            return null;
+        }
+        while(temp.next != null){
+            if(temp.next.val == val){
+                temp.next = temp.next.next;
+            }
+            else {
+                temp = temp.next;
+            }
+        }
+        return prev.next;
+    }
+
+    public String mergeAlternately(String word1, String word2) {
+        char[] w1 = word1.toCharArray();
+        char[] w2 = word2.toCharArray();
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        String str = "";
+        while(i<w1.length && j<w2.length){
+            if(k%2==0){
+                str = str.concat(Character.toString(w1[i]));
+                i++;
+            }else{
+                str = str.concat(Character.toString(w2[j]));
+                j++;
+            }
+            k++;
+        }
+        while(i<w1.length || j<w2.length){
+            if(i<w1.length){
+                str = str.concat(Character.toString(w1[i]));
+                i++;
+            }else{
+                str = str.concat(Character.toString(w2[j]));
+                j++;
+            }
+        }
+        return str;
+    }
+
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         HashSet<Integer> hset = new HashSet<>();
         int j=0;
@@ -1409,13 +1456,16 @@ class Solution{
         rom.put("IV",4);
         rom.put("I",1);
 
-        while (num>0){
-            for(Map.Entry<String,Integer> entry:rom.entrySet()){
-                if((num-entry.getValue())>0){
+        String str = "";
+        int val = num;
 
-                }
+        for(Map.Entry<String,Integer> entry:rom.entrySet()){
+            while((val/entry.getValue())>=1){
+                str=str+entry.getKey();
+                val = val-entry.getValue();
             }
         }
+        return str;
     }
 }
 
