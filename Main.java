@@ -198,57 +198,68 @@ public class Main {
 //        System.out.println("output: "+stn.isBST(root2));
 //        System.out.println("Excel Sheet Column title");
 //        System.out.println("output: "+stn.numberToTitle(701));
-        int[] nums7 = {1,2};
-        int[] nums8 = {3,4};
-        System.out.println("4. Median of Two Sorted Arrays");
-        System.out.println("output: "+stn.findMedianSortedArrays(nums7,nums8));
-        TreeNode node18 = new TreeNode(3);
-        TreeNode node17 = new TreeNode(4);
-        TreeNode node16 = new TreeNode(4);
-        TreeNode node15 = new TreeNode(3);
-        TreeNode node14 = new TreeNode(2,node17,node18);
-        TreeNode node13 = new TreeNode(2,node15,node16);
-        TreeNode root3 = new TreeNode(1,node13,node14);
-        System.out.println("(101) Symmetric Tree");
-        System.out.println("output: "+stn.isSymmetric(root3));
-        ListNode l1 = new ListNode(4);
-        ListNode l2 = new ListNode(1);
-        ListNode l3 = new ListNode(8);
-        ListNode l4 = new ListNode(4);
-        ListNode l5 = new ListNode(5);
+//        int[] nums7 = {1,2};
+//        int[] nums8 = {3,4};
+//        System.out.println("4. Median of Two Sorted Arrays");
+//        System.out.println("output: "+stn.findMedianSortedArrays(nums7,nums8));
+//        TreeNode node18 = new TreeNode(3);
+//        TreeNode node17 = new TreeNode(4);
+//        TreeNode node16 = new TreeNode(4);
+//        TreeNode node15 = new TreeNode(3);
+//        TreeNode node14 = new TreeNode(2,node17,node18);
+//        TreeNode node13 = new TreeNode(2,node15,node16);
+//        TreeNode root3 = new TreeNode(1,node13,node14);
+//        System.out.println("(101) Symmetric Tree");
+//        System.out.println("output: "+stn.isSymmetric(root3));
+//        ListNode l1 = new ListNode(4);
+//        ListNode l2 = new ListNode(1);
+//        ListNode l3 = new ListNode(8);
+//        ListNode l4 = new ListNode(4);
+//        ListNode l5 = new ListNode(5);
+//
+//        ListNode r1 = new ListNode(5);
+//        ListNode r2 = new ListNode(6);
+//        ListNode r3 = new ListNode(1);
+//
+//        l1.next = l2;
+//        l2.next = l3;
+//        l3.next = l4;
+//        l4.next = l5;
+//
+//        r1.next = r2;
+//        r2.next = r3;
+//        r3.next = l3;
+//        int val = stn.getIntersectionNode(l1,r1).val;
+//        System.out.println("(160) Intersection of Two Linked Lists");
+//        System.out.println("Intersected at: "+val);
+//        System.out.println("(7) Reverse Integer\n");
+//        System.out.println("output: "+stn.reverse(1534236469));
+//        System.out.println("(8) String to Integer (atoi)\n");
+//        System.out.println("output: "+stn.myAtoi("   -42"));
+//        System.out.println("(13) Roman to Integer\n");
+//        System.out.println("output: "+stn.romanToInt("MCMXCIV"));
+//        int[] threeSum = {-2,0,1,1,2};
+//        System.out.println("(15) 3Sum\n");
+//        //System.out.println("output: "+stn.threeSum(threeSum));
+//        int[] nums4 = {1,2,3,1,2,3};
+//        System.out.println("(219) Contains Duplicate II\n");
+//        System.out.println("output: "+stn.containsNearbyDuplicate(nums4,2));
+//        System.out.println("258. Add Digits\n");
+//        System.out.println("output: "+stn.addDigits(38));
+//        int[] candies = {2,3,5,1,3};
+//        System.out.println("(1431) Kids With the Greatest Number of Candies\n");
+//        System.out.println("output: "+stn.kidsWithCandies(candies,3));
+        int[] flowerbed = {1,0,0,0,1};
+        System.out.println("(605) Can Place Flowers\n");
+        System.out.println("output: "+stn.canPlaceFlowers(flowerbed,1));
+        System.out.println("(345) Reverse Vowels of a String\n");
+        System.out.println("output: "+stn.reverseVowels("aA"));
+        System.out.println("(151) Reverse Words in a String\n");
+        System.out.println("output: "+stn.reverseWords("  hello world  "));
+        int[] numProd = {0,4,0};
+        System.out.println("(238) Product of Array Except Self\n");
+        System.out.println("output: "+stn.productExceptSelf(numProd));
 
-        ListNode r1 = new ListNode(5);
-        ListNode r2 = new ListNode(6);
-        ListNode r3 = new ListNode(1);
-
-        l1.next = l2;
-        l2.next = l3;
-        l3.next = l4;
-        l4.next = l5;
-
-        r1.next = r2;
-        r2.next = r3;
-        r3.next = l3;
-        int val = stn.getIntersectionNode(l1,r1).val;
-        System.out.println("(160) Intersection of Two Linked Lists");
-        System.out.println("Intersected at: "+val);
-        System.out.println("(7) Reverse Integer\n");
-        System.out.println("output: "+stn.reverse(1534236469));
-        System.out.println("(8) String to Integer (atoi)\n");
-        System.out.println("output: "+stn.myAtoi("   -42"));
-        System.out.println("(13) Roman to Integer\n");
-        System.out.println("output: "+stn.romanToInt("MCMXCIV"));
-        int[] threeSum = {-2,0,1,1,2};
-        System.out.println("(15) 3Sum\n");
-        //System.out.println("output: "+stn.threeSum(threeSum));
-        int[] nums4 = {1,2,3,1,2,3};
-        System.out.println("(219) Contains Duplicate II\n");
-        System.out.println("output: "+stn.containsNearbyDuplicate(nums4,2));
-        System.out.println("258. Add Digits\n");
-        System.out.println("output: "+stn.addDigits(38));
-        int[] candies = {2,3,5,1,3};
-        System.out.println("(1431) Kids With the Greatest Number of Candies\n");
-        System.out.println("output: "+stn.kidsWithCandies(candies,3));
     }
 }
 
@@ -1048,7 +1059,7 @@ class Solution{
     public int minValue(TreeNode node){
         if(node == null)
             return Integer.MAX_VALUE;
-        return Math.max(minValue(node.left),minValue(node.right));
+        return Math.min(minValue(node.left),minValue(node.right));
     }
 
     public boolean isBST(TreeNode root){
@@ -1209,6 +1220,32 @@ class Solution{
         return val;
     }
 
+    public String mergeAlternately(String word1, String word2) {
+        char[] w1 = word1.toCharArray();
+        char[] w2 = word2.toCharArray();
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        String str = "";
+        while(i<w1.length && j<w2.length){
+            if(k%2==0){
+                str = str.concat(Character.toString(w1[i]));
+                i++;
+            }else{
+                str = str.concat(Character.toString(w2[j]));
+                j++;
+            }
+            k++;
+        }
+
+        if(i<w1.length){
+            str = str.concat(word1.substring(i,word1.length()));
+        }else{
+            str = str.concat(word2.substring(j,word2.length()));
+        }
+        return str;
+    }
+
     public List<List<Integer>> threeSum(int[] nums) {
         int sum=0;
         List<List<Integer>> rslt = new ArrayList<>();
@@ -1281,7 +1318,142 @@ class Solution{
         }
         return bolList;
     }
+
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        if(flowerbed.length==1){
+            if (flowerbed[0] == 0)
+                return true;
+            else if(flowerbed[0] == 1 && n==0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        for(int i=0;i<flowerbed.length;i++){
+            if(i==0) {
+                if (flowerbed[i] == 0 && flowerbed[i + 1] == 0) {
+                    n--;
+                    flowerbed[i] = 1;
+                }
+            }
+            else if(i==flowerbed.length-1){
+                if (flowerbed[i - 1] == 0 && flowerbed[i] == 0) {
+                    n--;
+                    flowerbed[i] = 1;
+                }
+            }
+            else{
+                if (flowerbed[i - 1] == 0 && flowerbed[i] == 0 && flowerbed[i + 1] == 0) {
+                    n--;
+                    flowerbed[i] = 1;
+                }
+            }
+        }
+        return n<=0?true:false;
+    }
+
+    public String reverseVowels(String s) {
+        List<Character> vowels = new ArrayList<>();
+        vowels.add('a');
+        vowels.add('e');
+        vowels.add('i');
+        vowels.add('o');
+        vowels.add('u');
+        vowels.add('A');
+        vowels.add('E');
+        vowels.add('I');
+        vowels.add('O');
+        vowels.add('U');
+        char[] word = s.toCharArray();
+        int strt = 0;
+        int end = s.length()-1;
+
+        while(strt<end){
+            while(strt < end && vowels.contains(word[strt])==false){
+                strt++;
+            }
+            while (strt < end && vowels.contains(word[end])==false){
+                end--;
+            }
+            char temp = word[strt];
+            word[strt] = word[end];
+            word[end] = temp;
+            strt++;
+            end--;
+        }
+        String result = new String(word);
+        return result;
+    }
+
+    public String reverseWords(String s) {
+        String[] words = s.split(" ");
+        String sent = "";
+        for (int i=0;i<words.length;i++) {
+            if(!words[i].equalsIgnoreCase("") && !words[i].equals(null)) {
+                if(sent.equalsIgnoreCase("")){
+                    sent = words[i];
+                }else {
+                    sent = words[i] + " " + sent;
+                }
+            }
+        }
+        return sent;
+    }
+
+    public int[] productExceptSelf(int[] nums) {
+        int product = 0;
+        List<Integer> zeroInd = new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==0){
+                zeroInd.add(i);
+            }else{
+                product = nums[i]*product;
+            }
+        }
+        for(int j =0;j<nums.length;j++){
+            if(!zeroInd.isEmpty() && nums[j]!=0){
+                nums[j] = 0;
+            }
+            else if(!zeroInd.isEmpty() && nums[j]==0){
+                nums[j] = product;
+            }
+            else{
+                nums[j] = product/nums[j];
+            }
+        }
+        return nums;
+    }
+
+    public String intToRoman(int num) {
+        HashMap<String,Integer> rom = new LinkedHashMap<>();
+        rom.put("M",1000);
+        rom.put("CM",900);
+        rom.put("D",500);
+        rom.put("CD",400);
+        rom.put("C",100);
+        rom.put("XC",90);
+        rom.put("L",50);
+        rom.put("XL",40);
+        rom.put("X",10);
+        rom.put("IX",9);
+        rom.put("V",5);
+        rom.put("IV",4);
+        rom.put("I",1);
+
+        String str = "";
+        int val = num;
+
+        for(Map.Entry<String,Integer> entry:rom.entrySet()){
+            while((val/entry.getValue())>=1){
+                str=str+entry.getKey();
+                val = val-entry.getValue();
+            }
+        }
+        return str;
+    }
 }
+
 
 class TreeNode {
     int val;
